@@ -1,0 +1,53 @@
+{
+    "name"          : "2do/contao-booking-plan",
+    "type"          : "contao-bundle",
+    "description"   : "Contao 4 PreStep Booking PLan",
+    "homepage"      : "http://www.prestep.at",
+    "license"       : "MIT",
+    "authors"       :
+    [
+        {
+            "name"      : "Stephan Preßl",
+            "email"     : "development@prestep.at",
+            "homepage"  : "http://www.prestep.at",
+            "role"      : "Developer"
+        }
+    ],
+    "require":
+    {
+        "php": ">=7.2",
+        "contao/core-bundle": "~4"
+    },
+    "conflict":
+    {
+        "contao/core": "*"
+    },
+    "autoload":
+    {
+        "psr-4":
+        {
+            "PreStep\\BookingPlanBundle\\": "src/"
+        },
+
+        "exclude-from-classmap":
+        [
+            "tests/",
+            "src/Resources/contao/config/",
+            "src/Resources/contao/dca/",
+            "src/Resources/contao/languages/",
+            "src/Resources/contao/templates/"
+        ]
+    },
+    "config":
+    {
+        "preferred-install"         : "dist"
+    },
+    "extra":
+    {
+        "branch-alias":
+        {
+            "dev-develop" : "4.4.x-dev"
+        },
+        "contao-manager-plugin" : "PreStep\\BookingPlanBundle\\ContaoManager\\Plugin"
+    }
+}

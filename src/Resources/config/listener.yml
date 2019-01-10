@@ -1,0 +1,5 @@
+services:
+#    prestep_bookingplan.module.navigation_controller:
+#        class: IIDO\BasicBundle\Module\NavigationController
+#        tags:
+#            - { name: contao.frontend_module, category: navigationMenu }
