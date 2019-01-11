@@ -38,27 +38,19 @@ class NavigationListener
         [
             'clients' =>
             [
-                'label'     => 'IIDO Clients',
-                'class'     => 'navigation iido-clients',
-                'href'      => $this->router->generate('contao_backend_iido_clients'),
-                'isActive'  => 'contao_backend_iido_clients' === $request->attributes->get('_route'),
+                'label'     => 'Zimmer/Wohnungen/Häuser',
+                'class'     => 'navigation psbooking-rooms',
+                'href'      => $this->router->generate('contao_backend_psbooking_rooms'),
+                'isActive'  => 'contao_backend_psbooking_rooms' === $request->attributes->get('_route'),
             ],
-
-            'apiConfig' =>
-            [
-                'label'     => 'IIDO API',
-                'class'     => 'navigation iido-api-config',
-                'href'      => $this->router->generate('contao_backend_iido_apiConfig'),
-                'isActive'  => 'contao_backend_iido_apiConfig' === $request->attributes->get('_route'),
-            ]
         ];
 
-        if( isset($arrModules['iido']) )
+        if( isset($arrModules['psbooking']) )
         {
-            $arrModules['iido']['modules'] = array_merge
+            $arrModules['psbooking']['modules'] = array_merge
             (
                 $arrIIDOModules,
-                $arrModules['iido']['modules']
+                $arrModules['psbooking']['modules']
             );
         }
         else
@@ -68,12 +60,12 @@ class NavigationListener
                 $arrModules,
                 3,
                 [
-                    'iido' =>
+                    'psbooking' =>
                     [
-                        'class'     =>  'node-expanded',
+                        'class'     => 'node-expanded',
                         'title'     => 'Bereich schließen',
-                        'label'     => 'IIDO',
-                        'href'      => '/contao/iido?mtg=iido&ref=' . TL_REFERER_ID,
+                        'label'     => 'Belegung',
+                        'href'      => '/contao/psbooking?mtg=psbooking&ref=' . TL_REFERER_ID,
                         'ajaxUrl'   => '/contao',
                         'icon'      => 'modPlus.gif',
                         'modules'   => $arrIIDOModules
