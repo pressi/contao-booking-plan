@@ -1,5 +1,5 @@
 {
-    "name"          : "prestep/contao-booking-plan",
+    "name"          : "prestep/contao-booking-plan-bundle",
     "type"          : "contao-bundle",
     "description"   : "Contao 4 PreStep Booking Plan",
     "homepage"      : "http://www.prestep.at",
