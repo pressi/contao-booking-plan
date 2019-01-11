@@ -24,7 +24,7 @@ use Symfony\Component\Config\Loader\LoaderResolverInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 use Contao\ManagerPlugin\Config\ConfigPluginInterface;
-use Symfony\Component\Config\Loader\LoaderInterface;
+//use Symfony\Component\Config\Loader\LoaderInterface;
 
 
 /**
@@ -68,5 +68,12 @@ class Plugin implements BundlePluginInterface, RoutingPluginInterface, ConfigPlu
         $file = __DIR__ . '/../Resources/config/routing.yml';
 
         return $resolver->resolve($file)->load($file);
+    }
+
+
+
+    public function registerContainerConfiguration(LoaderInterface $loader, array $config)
+    {
+//        $loader->load(__DIR__ . '/config/custom.yml');
     }
 }
