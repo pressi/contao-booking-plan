@@ -3,3 +3,11 @@ services:
 #        class: IIDO\BasicBundle\Module\NavigationController
 #        tags:
 #            - { name: contao.frontend_module, category: navigationMenu }
+
+    prestep_bookingplan.navigation_listener:
+        class: PreStep\BookingPlanBundle\EventListener\NavigationListener
+        arguments:
+            - "@request_stack"
+            - "@router"
+        tags:
+            - { name: contao.hook, hook: getUserNavigation }

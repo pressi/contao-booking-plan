@@ -1,1 +1,1 @@
-# contao-booking-plan
+# Contao booking plan bundle
