@@ -3,14 +3,14 @@
  * (c) 2019 Stephan Preßl, www.prestep.at <development@prestep.at>
  * All rights reserved
  * Modification, distribution or any other action on or with
- * this file is permitted unless explicitly granted by PreStep
+ * this file is permitted unless explicitly granted by PRESTEP
  * www.prestep.at <development@prestep.at>
  *******************************************************************/
 
-namespace PreStep\BookingPlanBundle\ContaoManager;
+namespace PRESTEP\BookingPlanBundle\ContaoManager;
 
 
-use PreStep\BookingPlanBundle\PreStepBookingPlanBundle;
+use PRESTEP\BookingPlanBundle\PRESTEPBookingPlanBundle;
 
 use Contao\CoreBundle\ContaoCoreBundle;
 
@@ -24,7 +24,7 @@ use Symfony\Component\Config\Loader\LoaderResolverInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 use Contao\ManagerPlugin\Config\ConfigPluginInterface;
-//use Symfony\Component\Config\Loader\LoaderInterface;
+use Symfony\Component\Config\Loader\LoaderInterface;
 
 
 /**
@@ -42,7 +42,7 @@ class Plugin implements BundlePluginInterface, RoutingPluginInterface, ConfigPlu
         $arrLoadAfter   = [ContaoCoreBundle::class];
 
         return [
-            BundleConfig::create(PreStepBookingPlanBundle::class)
+            BundleConfig::create(PRESTEPBookingPlanBundle::class)
                 ->setLoadAfter($arrLoadAfter)
         ];
     }

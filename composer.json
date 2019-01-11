@@ -1,7 +1,7 @@
 {
-    "name"          : "prestep/contao-booking-plan",
+    "name"          : "prestep/contao-booking-plan-bundle",
     "type"          : "contao-bundle",
-    "description"   : "Contao 4 PreStep Booking Plan",
+    "description"   : "Contao 4 PRESTEP Booking Plan Bundle",
     "homepage"      : "http://www.prestep.at",
     "license"       : "MIT",
     "authors"       :
@@ -26,7 +26,7 @@
     {
         "psr-4":
         {
-            "PreStep\\BookingPlanBundle\\": "src/"
+            "PRESTEP\\BookingPlanBundle\\": "src/"
         },
 
         "exclude-from-classmap":
@@ -48,6 +48,6 @@
         {
             "dev-develop" : "4.4.x-dev"
         },
-        "contao-manager-plugin" : "PreStep\\BookingPlanBundle\\ContaoManager\\Plugin"
+        "contao-manager-plugin" : "PRESTEP\\BookingPlanBundle\\ContaoManager\\Plugin"
     }
 }

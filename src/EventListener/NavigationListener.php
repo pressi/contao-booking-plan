@@ -3,11 +3,11 @@
  * (c) 2019 Stephan Preßl, www.prestep.at <development@prestep.at>
  * All rights reserved
  * Modification, distribution or any other action on or with
- * this file is permitted unless explicitly granted by PreStep
+ * this file is permitted unless explicitly granted by PRESTEP
  * www.prestep.at <development@prestep.at>
  *******************************************************************/
 
-namespace PreStep\BookingPlanBundle\EventListener;
+namespace PRESTEP\BookingPlanBundle\EventListener;
 
 
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -34,9 +34,9 @@ class NavigationListener
 
         $GLOBALS['TL_CSS'][] = 'bundles/prestepbookingplan/css/backend.css|static';
 
-        $arrIIDOModules =
+        $arrBookingPlanModules =
         [
-            'clients' =>
+            'rooms' =>
             [
                 'label'     => 'Zimmer/Wohnungen/Häuser',
                 'class'     => 'navigation psbooking-rooms',
@@ -49,7 +49,7 @@ class NavigationListener
         {
             $arrModules['psbooking']['modules'] = array_merge
             (
-                $arrIIDOModules,
+                $arrBookingPlanModules,
                 $arrModules['psbooking']['modules']
             );
         }
@@ -58,7 +58,7 @@ class NavigationListener
             array_insert
             (
                 $arrModules,
-                3,
+                0,
                 [
                     'psbooking' =>
                     [
@@ -68,12 +68,12 @@ class NavigationListener
                         'href'      => '/contao/psbooking?mtg=psbooking&ref=' . TL_REFERER_ID,
                         'ajaxUrl'   => '/contao',
                         'icon'      => 'modPlus.gif',
-                        'modules'   => $arrIIDOModules
+                        'modules'   => $arrBookingPlanModules
                     ]
                 ]
             );
         }
-
+echo "<pre>"; print_r( $arrModules ); exit;
         return $arrModules;
     }
 

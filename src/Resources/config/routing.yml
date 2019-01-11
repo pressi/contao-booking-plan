@@ -1,0 +1,6 @@
+contao_backend_psbooking_rooms:
+  path: /contao/psbooking/rooms
+  defaults:
+    _scope: backend
+    _token_check: true
+    _controller: "PRESTEPBookingPlanBundle:Backend:rooms"
