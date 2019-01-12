@@ -26,6 +26,8 @@ use Symfony\Component\HttpKernel\KernelInterface;
 use Contao\ManagerPlugin\Config\ConfigPluginInterface;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
+use Contao\ManagerPlugin\Config\ContainerBuilder as PluginContainerBuilder;
+
 
 /**
  * Plugin for the Contao Manager.
@@ -75,5 +77,43 @@ class Plugin implements BundlePluginInterface, RoutingPluginInterface, ConfigPlu
     public function registerContainerConfiguration(LoaderInterface $loader, array $config)
     {
 //        $loader->load(__DIR__ . '/config/custom.yml');
+    }
+
+
+
+    /**
+     * Allows a plugin to override extension configuration.
+     *
+     * @param string           $extensionName
+     * @param array            $extensionConfigs
+     * @param PluginContainerBuilder $container
+     *
+     * @return array
+     */
+    public function getExtensionConfig($extensionName, array $extensionConfigs, PluginContainerBuilder $container)
+    {
+        /**
+         * Füge dein Bundle zu Doctrine hinzu
+         */
+        if ('doctrine' === $extensionName)
+        {
+            $extensionConfigs[0] = array_merge($extensionConfigs[0],
+            [
+                'orm' =>
+                [
+                    'entity_managers' =>
+                    [
+                        'default' =>
+                        [
+                            'mappings' =>
+                            [
+                                'PRESTEPBookingPlanBundle' => ''
+                            ]
+                        ]
+                    ]
+                ]
+            ]);
+        }
+        return $extensionConfigs;
     }
 }

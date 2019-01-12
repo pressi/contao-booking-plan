@@ -13,15 +13,24 @@
             "role"      : "Developer"
         }
     ],
+
     "require":
     {
         "php": ">=7.2",
-        "contao/core-bundle": "~4"
+        "contao/core-bundle": "~4",
+
+        "doctrine/orm": "^2.6",
+        "doctrine/doctrine-bundle": "^1.6",
+        "doctrine/doctrine-cache-bundle": "^1.2",
+        "doctrine/data-fixtures": "1.0.*",
+        "doctrine/dbal": "~2.4"
     },
+
     "conflict":
     {
         "contao/core": "*"
     },
+
     "autoload":
     {
         "psr-4":
@@ -38,16 +47,14 @@
             "src/Resources/contao/templates/"
         ]
     },
+
     "config":
     {
         "preferred-install"         : "dist"
     },
+
     "extra":
     {
-        "branch-alias":
-        {
-            "dev-develop" : "4.4.x-dev"
-        },
         "contao-manager-plugin" : "PRESTEP\\BookingPlanBundle\\ContaoManager\\Plugin"
     }
 }

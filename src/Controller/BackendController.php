@@ -21,9 +21,32 @@ class BackendController extends Controller
     {
         $this->get('contao.framework')->initialize();
 
-        $arrConfig = [];
+        $mode           = 'table';
+        $tableMode      = '\DC_' . ucfirst($mode);
 
-        return new Response( $this->get('twig')->render('@PRESTEPBookingPlan/Backend/clients.html.twig', $arrConfig) );
+        $strTable       = 'tl_prestep_bookingplan_room';
+        $objTable       = new $tableMode( $strTable );
+
+        $tableFuncName  = (($mode === 'file') ? 'edit' : 'showAll');
+        $action         = \Input::get("act");
+
+        if( $action )
+        {
+            if( $action !== "select" )
+            {
+                $tableFuncName = $action;
+            }
+        }
+
+        $strContent = $objTable->$tableFuncName();
+
+        $arrConfig =
+        [
+            'mode'      => $mode,
+            'content'   => $strContent
+        ];
+
+        return new Response( $this->get('twig')->render('@PRESTEPBookingPlan/Backend/rooms.html.twig', $arrConfig) );
     }
 
 }

@@ -1,12 +1,19 @@
 {% extends "@ContaoCore/Backend/be_page.html.twig" %}
 
 {% block headline %}
-Belegung: Zimmer/Wohnungen/Häuser
-{%  endblock %}
+Verwaltung: Zimmer/Wohnungen/Häuser
+{% endblock %}
 
 {% block main %}
-    <div class="backend-container">
 
-{%  endblock %}
+    {% if mode === 'table' %}
+        {{ content|raw }}
+    {% else %}
+        <div class="backend-container">
 
-{% block error %}{%  endblock %}
+        </div>
+    {% endif %}
+
+{% endblock %}
+
+{% block error %}{% endblock %}

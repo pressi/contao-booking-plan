@@ -38,7 +38,7 @@ class NavigationListener
         [
             'rooms' =>
             [
-                'label'     => 'Zimmer/Wohnungen/Häuser',
+                'label'     => 'Verwaltung',
                 'class'     => 'navigation psbooking-rooms',
                 'href'      => $this->router->generate('contao_backend_psbooking_rooms'),
                 'isActive'  => 'contao_backend_psbooking_rooms' === $request->attributes->get('_route'),
@@ -73,7 +73,7 @@ class NavigationListener
                 ]
             );
         }
-echo "<pre>"; print_r( $arrModules ); exit;
+
         return $arrModules;
     }
 

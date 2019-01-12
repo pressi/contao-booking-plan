@@ -15,3 +15,12 @@ services:
             - "@router"
         tags:
             - { name: contao.hook, hook: getUserNavigation }
+
+    prestep.bookingplan.room.dca.tl_prestep_bookingplan_room:
+        class: PRESTEP\BookingPlanBundle\Dca\Room
+        public: true
+        arguments:
+            - "@contao.framework"
+            - "@security.token_storage"
+            - "@session"
+            - "@doctrine.orm.entity_manager"
